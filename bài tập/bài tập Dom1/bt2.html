@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #modal {
+        background-color: beige;
+        height: 80px;
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        left: 5%;
+    };
+
+</style>
+<body>
+    <h2 id="text">Modal Example</h2>
+    <button id="btn1">Open Modal</button>
+    <div id="modal">
+        <span id="text1">Some text in the Modal..</span>
+        <button id="btnClose">x</button>
+    </div>
+    <script>
+        let text= document.getElementById("text");
+        let btn1= document.getElementById("btn1");
+        let modal = document.getElementById("modal")
+        let btnClose= document.getElementById("btnClose");
+        btn1.addEventListener("click",(e)=>{
+            modal.style.visibility="visible"
+        })
+        btnClose.addEventListener("click",(e)=>{
+            modal.style.visibility="hidden"
+        })
+    </script>
+</body>
+</html>

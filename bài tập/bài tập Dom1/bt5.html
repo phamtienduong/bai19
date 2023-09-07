@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .my {
+        background-color: black;
+    }
+
+    .my2 {
+        color: white;
+    }
+</style>
+<body>
+    <div id="div">
+        <h1>Toggle Dark/Light Mode</h1>
+        <p>Click the button to toggle between dark and light mode for this page</p>
+        <button id="btn"></button>
+    </div>
+    <script>
+        let btn = document.getElementById("btn")
+        btn.innerHTML = "Toggle dark mode"
+
+        let div = document.getElementById("div");
+        let h1 = document.getElementsByTagName("h1")
+        let p = document.getElementsByTagName("p")
+        div.style.border = "1px solid black"
+        div.style.padding = "10px"
+        btn.addEventListener("click", () => {
+            div.classList.toggle("my");
+            h1[0].classList.toggle("my2");
+            p[0].classList.toggle("my2");
+            btn.innerHTML = 'Toggle ligth mode'
+        })
+    </script>
+</body>
+</html>

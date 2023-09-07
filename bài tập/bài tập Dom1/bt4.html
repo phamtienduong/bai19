@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #mainText {
+        font-size: 20px;
+        margin-left: 50px;
+    }
+
+    #tooltip {
+        visibility: hidden;
+
+    }
+</style>
+<body>
+    <div id="mainText">
+        <h2>Tooltip</h2>
+        <p>Move the mouse on the text below:</p>
+        <a href="" id="link">Hover over me</a>
+    </div>
+    <div id="tooltip">Tooltip text</div>
+    <script>
+        let text = document.getElementById("mainText")
+        let hover = document.getElementById("link")
+        let tooltip = document.getElementById("tooltip")
+        hover.addEventListener("mouseover", () => {
+            tooltip.style.visibility = "visible"
+        })
+        hover.addEventListener("mouseout", () => {
+            tooltip.style.visibility = "hidden"
+        })
+    </script>
+</body>
+</html>

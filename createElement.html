@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //lấy value của ô input
+        let inputVal = input.value
+        // //tạo phần tử <li></li> và gán vào biến newLi
+        let newLi = document.createElement("li")
+        // //tạo phần tử <button></button> và gán vào biến updateBtn
+        let updateBtn = document.createElement("button")
+        // //đưa đoạn text Sửa vào trong updateBtn => <button>Sửa</button>
+        updateBtn.innerText = "Sửa"
+
+        // //tạo phần tử <button></button> và gán vào biến deleteBtn
+        let deleteBtn = document.createElement("button")
+        // //đưa đoạn text Xóa vào trong updateBtn => <button>Xóa</button>
+        deleteBtn.innerText = "Xóa"
+
+        // //Đưa value của ô input vào newLi => <li>value</li>
+        newLi.innerText = inputVal
+
+        // //Thêm updateBtn vào cuối newLi => <li>value<button>Sửa</button></li>
+        newLi.appendChild(updateBtn)
+        // Thêm deleteBtn vào cuối
+         newLi => <li>value<button>Sửa</button><button>Xóa</button></li>
+        // newLi.appendChild(deleteBtn)
+
+        // //Thêm newLi vào cuối listTodos
+        newLi => <ul id="listTodos"><li>Việc số 1 <button>Sửa</button><button>Xóa</button></li></ul>
+        listTodos.appendChild(newLi)
+
+
+        // listTodos.innerHTML += `
+        //     <li>${inputVal} <button>Sửa</button><button>Xóa</button></li>
+        // `
+        // input.value = ""
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Form Đăng Nhập</title>
+</head>
+<body>
+    <h2>Đăng Nhập</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Đăng Nhập">
+    </form>
+
+    <script>
+        // Truy cập vào các trường input và đặt giá trị cho chúng
+        document.getElementById('username').value = 'rikkeiAcademy';
+        document.getElementById('password').value = 'Để nông dân biết code';
+
+        // Lắng nghe sự kiện khi form được submit
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn form gửi đi (chỉ để minh họa)
+
+            // Lấy giá trị từ các trường input
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            // Xử lý đăng nhập ở đây (để lại phần này để xử lý đăng nhập thực tế)
+            if (username === 'rikkeiAcademy' && password === 'Để nông dân biết code') {
+                alert('Đăng nhập thành công');
+            } else {
+                alert('Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>

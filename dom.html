@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #myDiv{
+        background-color: aqua;
+
+    }
+      
+    
+        
+    
+</style>
+<body>
+    <div id="myDiv" style="font-size: 100px;">123</div>
+    <div id="myDiv1" class="myDiv" style="font-size: 100px;">
+        <h4>123</h4>
+        456
+    </div>
+    123
+    <div style="font-size: 100px;">789</div>
+    <div id="myDiv3" class="myDiv" style="font-size: 100px;">abc</div>
+
+    <script>
+        // truy cập phần tử html theo id
+        let myDivById = document.getElementById("myDiv");
+        // lấy ra tập hợp các phần tử html theo tên thẻ
+        // các phần tử được lưu trữ trong HTML colection 
+        let divCollection = document.getElementsByTagName("div");
+        // truy cập các phần tử html theo class 
+        // các phần tử được lưu trữ trong HTML colection 
+        let myDivByClass = document.getElementsByClassName("myDiv");
+
+        // truy cập các phàn tử theo bộ chọn (css selector)
+        // chỉ lấy được 1 phần tử
+        let myDivBySelector = document.querySelector("myDiv");
+        // truy cập tập hợp các phàn tử theo bộ chọn
+        // các phần tử được lưu trong Nodelist 
+        let listBySelector = document.querySelectorAll("myDiv");
+        console.log(myDivById.id);
+        console.log(divCollection);
+
+        // thay đổi giá trị thuộc tính của thẻ HTML
+        myDivById.innerHTML = "JQK";
+        myDivById.id = "";
+        myDivById.style= "back "
+
+        // thêm và xoá các phần tử trong html 
+        let newDiv = document.createElement("div")
+        newDiv.innerHTML="div mới"
+        newDiv.id = "newDiv"
+        newDiv.style.backgroundColor = "blue"
+
+        // thêm phần tử html vào cuối phần tử  khác
+        myDivById.appendChild(newDiv);
+         
+        // xoá phần tử html trong phần tử khác
+        myDivById.removeChild(newDiv);
+        // thay đổi cấc phần tử html trong phân tử 
+        myDivById.replaceChild("123",h4)
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.Xây dựng form login gồm 2 thẻ input username và password
+    2. Truy cập vào 2 thẻ input username và password và gắn lại giá trị cho ô username
+    là rikkeiAcademy, password là"Để nông dân biết code" -->
+    <div id="newDiv"></div>
+    <script>
+        let newDiv = document.getElementById("newDiv");
+        let form = document.createElement("form");
+        newDiv.appendChild(form);
+        let userName = document.createElement("input");
+        form.appendChild(userName);
+        let passWord = document.createElement("input");
+        form.appendChild(passWord);
+        userName.setAttribute("type","text");
+        userName.placeholder = "userName";
+        userName.value="";
+        userName.style.color="red"
+        passWord.placeholder="passWord"
+        passWord.setAttribute("type","password");
+        passWord.value=""
+        console.log("newDiv");
+    </script>
+</body>
+</html>

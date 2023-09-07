@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Todo list</h3>
+    <input type="text" name="todo" id="todo">
+    <button id="saveBtn">Thêm</button>
+    <ul id="listTodos">
+        <!-- <li>Việc số 1 <button>Sửa</button><button>Xóa</button></li> -->
+
+    </ul>
+
+    <script>
+        //mảng các công việc cần làm
+        let todos = ["Rửa bát", "Lau nhà", "Học bài"]
+
+        let input = document.getElementById("todo")
+        let saveBtn = document.getElementById("saveBtn")
+        let listTodos = document.getElementById("listTodos")
+        let action = "create"
+        let todoIndex
+
+        //chức năng đọc và in ra màn hình
+        function render() {
+            //Xóa các phần tử bên trong listTodos
+            listTodos.innerHTML = ""
+            //lặp qua mảng todos và thêm một phần tử thml vào listTodos với giá trị của mỗi phần tử trong mảng
+            todos.forEach(
+                (todo, index) => {
+                    listTodos.innerHTML += `
+                    <li>${todo}
+                        <button onclick ="initUpdate('${index}')">Sửa</button>
+                        <button onclick="deleteTodo('${index}')">Xóa</button>
+                    </li>
+                    `
+                })
+        }
+
+        //chức năng thêm mới vào mảng
+        function createTodo() {
+            //lấy giá trị của ô input
+            let inputVal = input.value
+            //đẩy giá trị lấy từ ô input vào mảng
+            todos.push(inputVal)
+            //xóa giá trị trong ô input
+            input.value = ""
+            //render lại giao diện từ mảng mớimới
+            render()
+        }
+
+        //gắn sự kiện thêm mới cho nút Lưu
+        saveBtn.addEventListener("click", () => {
+            if (action == "create") {
+                createTodo()
+            }
+            else {
+                updateTodo()
+            }
+        })
+
+        //bắt đầu cập nhật
+        function initUpdate(index) {
+            //đặt value của ô input thành phần tử muốn cập nhật
+            input.value = todos[index]
+            //đặt lại action để thay đổi hành vi của nút thêm
+            action = "update"
+            //gán chỉ số của phần tử cho biến todoIndex
+            todoIndex = index
+        }
+
+        //thực hiện cập nhật trong mảng
+        function updateTodo() {
+            //lấy dữ liệu từ ô input 
+            let updateVal = input.value
+            //gán lại giá trị cho phần tử muốn cập nhật trong mảng 
+            todos[todoIndex] = updateVal
+            //xóa dữ liệu trong ô input
+            input.value = ""
+            //render lại dữ liệu và đặt lại action
+            render()
+            action = "create"
+        }
+
+        //thực hiện xóa trong mảng
+        function deleteTodo(index) {
+            //xóa phần tử trong mảng
+            todos.splice(index, 1)
+            //render lại dữ liệu
+            render()
+        }
+
+        render()
+    </script>
+</body>
+</html>

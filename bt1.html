@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.todo-container {
+    margin: 20px auto;
+    width: 300px;
+}
+
+#todo-input {
+    width: 70%;
+    padding: 5px;
+}
+
+#add-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.delete-button {
+    margin-left: 10px;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+</style>
+<body>
+    <h1>Todo List</h1>
+    <div class="todo-container">
+        <input type="text" id="todo-input" placeholder="Thêm công việc mới">
+        <button id="add-button">Thêm</button>
+    </div>
+    <ul id="todo-list">
+        <!-- Danh sách công việc Todo sẽ được hiển thị ở đây -->
+    </ul>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const todoInput = document.getElementById('todo-input');
+    const addButton = document.getElementById('add-button');
+    const todoList = document.getElementById('todo-list');
+
+    addButton.addEventListener('click', function() {
+        const todoText = todoInput.value.trim();
+        if (todoText !== '') {
+            createTodoItem(todoText);
+            todoInput.value = '';
+        }
+    });
+
+    todoInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const todoText = todoInput.value.trim();
+            if (todoText !== '') {
+                createTodoItem(todoText);
+                todoInput.value = '';
+            }
+        }
+    });
+
+    function createTodoItem(todoText) {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span>${todoText}</span>
+            <span class="delete-button">Xóa</span>
+        `;
+
+        const deleteButton = listItem.querySelector('.delete-button');
+        deleteButton.addEventListener('click', function() {
+            listItem.remove();
+        });
+
+        todoList.appendChild(listItem);
+    }
+});
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv" style="width: 100px; height: 100px; background-color: red;cursor: pointer;"></div>
+    <script>
+        let myDiv = document.getElementById("myDiv");
+         
+        // gắn sự kiện trực tiếp trong html 
+        function sukien1() {
+            console.log("Sự kiện 1 xảy ra");
+        }
+        function sukien2() {
+            console.log("Sự kiện 2 xảy ra");
+        }
+        // gắn sự kiện bằng cách thay đổi thuộc tính của phần tử 
+        // myDiv.onclick = sukien1;
+        // myDiv.onclick = sukien2;
+
+
+        // gắn sự kiện sử dụng phương thức addEventListener
+        // có thể add nhiều event giống nhau
+        // myDiv.addEventListener("click",sukien1);
+        myDiv.addEventListener("click", function (e) {
+            e.target.style.whith = "200px";
+            // console.log(a.target);
+        });
+    </script>
+</body>
+</html>
